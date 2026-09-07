@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo</title>
+    <!-- Linking SwiperJS CSS -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/photo.css">
+    <script src="js/htmx.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="left-side">
+            <li><a href="dashboard.html" class="tab-button">Home</a></li>
+            <li><a href="photo.html" class="tab-button">Photo</a></li>
+        </ul>
+        <ul class="right-side" style="display: flex;">
+            <li>
+                <div>
+                    <div id="editableField_1" class="editable" contenteditable="false" hx-get="apis/d.php?q=3"
+                        hx-trigger="load delay:1s" hx-target="this"></div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <div id="editableField_2" class="editable" contenteditable="false" hx-get="apis/d.php?q=4"
+                        hx-trigger="load delay:1s" hx-target="this"></div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <h2 id="header">Photo Section</h2>
+    <div id="grid">
+        <div class="container swiper">
+            <div class="card-wrapper">
+                <!-- Card slides container -->
+                <ul id="card_1" class="card-list swiper-wrapper" hx-get="b_api/d_l_api.php?c=1"
+                    hx-trigger="load delay:2s"
+                    hx-target="#card_1" hx-swap="innerHTML">
+                    <!-- click from:#card_1 delay:1s, click from:#btn delay:2s -->
+                    <li class="card-item swiper-slide">
+                        <div class="card-link">
+                            <img src="images/empty.jpg" alt="Card Image" class="card-image">
+                            <p class="badge badge-designer">1_demo</p>
+                            <div class="card-title card_1">Title</div>
+                            <button style="height: 35px;width: 60px; margin: 30px 0 5px;">Delete</button>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Pagination -->
+                <!-- <div class="swiper-pagination"></div> -->
+                <!-- Navigation Buttons -->
+                <div class="swiper-slide-button swiper-button-prev"></div>
+                <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
+        </div>
+        <!-- second div -->
+        <div class="container swiper">
+            <div class="card-wrapper">
+                <!-- Card slides container -->
+                <ul id="card_2" class="card-list swiper-wrapper" hx-get="b_api/d_l_api.php?c=2"
+                    hx-trigger="load delay:2s,"
+                    hx-target="#card_2" hx-swap="innerHTML">
+                    <!-- click from:#card_2 delay:1s, click from:#btn delay:1s -->
+                    <li class="card-item swiper-slide">
+                        <div class="card-link">
+                            <img src="images/empty.jpg" alt="Card Image" class="card-image">
+                            <p class="badge badge-designer">1_demo</p>
+                            <!-- <h2 class="card-title">Title</h2> -->
+                            <div class="card-title">Title</div>
+                            <button style="height: 35px;width: 60px; margin: 30px 0 5px;">Delete</button>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Pagination -->
+                <!-- <div class="swiper-pagination"></div> -->
+                <!-- Navigation Buttons -->
+                <div class="swiper-slide-button swiper-button-prev"></div>
+                <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
+        </div>
+        <!-- photo input form -->
+        <div id="grid_2" style="width: 220px;">
+            <div id="message">
+                <!-- <p id="message" class="glassmorphism-notify"></p> -->
+            </div>
+            <div>
+                <form id="form" hx-post="b_api/insert.php" hx-target="#message" hx-swap="beforeend"
+                    enctype="multipart/form-data">
+                    <select id="c" name="c" required>
+                        <option value="">Select</option>
+                        <option value="1">Book</option>
+                        <option value="2">Other Image</option>
+                    </select>
+                    <input type="text" name="id" id="id" placeholder="Input ID" autocomplete="off">
+                    <input type="text" name="title" id="title" placeholder="Input Title" autocomplete="off" required>
+                    <input type="file" name="photo" id="photo" placeholder="Input your photo" autocomplete="off"
+                        required>
+                    <div id="dragndrop">
+                        <div id="imagePreview"></div>
+                    </div>
+                    <button id="btn" type="submit">Upload</button>
+                    <!-- <button id="btnsubmit" type="submit" hx-on="htmx:afterRequest: test" hx-get="api/test.php" hx-target="#test">Upload</button> -->
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!-- Linking SwiperJS script -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!-- Linking custom script -->
+    <script src="js/swiper.js"></script>
+    <script src="js/photo.js"></script>
+</body>
+
+</html>

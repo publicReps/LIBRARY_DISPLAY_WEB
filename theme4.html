@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/theme4.css">
+    <script src="js/htmx.min.js"></script>
+    <title>Wall Display Layout</title>
+</head>
+<body>
+    <div id="header">
+        <!-- Ensure the image path is correct relative to your HTML file -->
+        <img src="icon/4.png" alt="Library Logo or User Photo">
+        <div class="header-text">
+            <h1>ৰসৰাজ লক্ষ্মীনাথ বেজবৰুৱা কেন্দ্ৰীয় পুথিভঁৰাল</h1>
+            <h1>Rasaraj Lakshminath Bezbaruah Central Library, Raha College</h1>
+            <p>A Provincialised College the Govt. of Assam</p>
+            <p>UGC Recognized, AICTE Approved, Affiliated to Gauhati University, NAAC Accredited, ISO 9001:2015</p>
+        </div>
+    </div>
+
+    <section class="grid_container">
+
+        <!-- Attendance Item -->
+        <div class="grid_item item-attendance">
+            <h1 class="p_header" hx-get="api/a_c_api.php" hx-trigger="load delay:3s, every 10s" hx-target="#a_c" hx-swap-oob="true">Attendance</h1>
+            <!-- No need for table wrapper here as content is fixed and short -->
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Students</td>
+                        <td>:</td>
+                        <td id="a_c2">0</td>
+                    </tr>
+                    <tr>
+                        <td>Teachers</td>
+                        <td>:</td>
+                        <td id="a_c3">0</td>
+                    </tr>
+                    <tr>
+                        <td>Others</td>
+                        <td>:</td>
+                        <td id="a_c4">0</td>
+                    </tr>
+                    <tr>
+                        <td>Male</td>
+                        <td>:</td>
+                        <td id="a_c1">0</td>
+                    </tr>
+                    <tr>
+                        <td>Female</td>
+                        <td>:</td>
+                        <td id="a_c">0</td>
+                    </tr>
+                    <!-- Add more rows if needed, they will fit -->
+                     <tr>
+                        <td><strong>Total</strong></td>
+                        <td>:</td>
+                        <td><strong>0</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Visitors Item -->
+        <div class="grid_item item-visitors mySlides">
+            <h1>Recent Visitors</h1>
+            <!-- Wrap table in a div to handle potential overflow/scrolling -->
+            <div class="table-wrapper">
+                <table id="recentlyVisitorsTable">
+                    <thead>
+                        <tr>
+                            <th>Member ID</th>
+                            <th>Name</th>
+                            <th>Login</th>
+                            <th>Logout</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody id="t1">
+                        <tr>
+                            <td>BSC/2023/09</td>
+                            <td>Satyajit Dekaraja</td>
+                            <td>08:15:30</td>
+                            <td>09:45:10</td>
+                            <td>Library Main</td>
+                        </tr>
+                         <tr>
+                            <td>FAC/2021/02</td>
+                            <td>Dr. Anya Sharma</td>
+                            <td>08:30:05</td>
+                            <td>11:05:00</td>
+                            <td>Lab Entrance</td>
+                        </tr>
+                         <tr>
+                            <td>BSC/2022/15</td>
+                            <td>Priya Das</td>
+                            <td>08:40:12</td>
+                            <td>10:15:00</td>
+                            <td>Reading Hall</td>
+                        </tr>
+                         <tr>
+                            <td>OTH/2024/01</td>
+                            <td>Guest User</td>
+                            <td>09:05:00</td>
+                            <td>09:30:45</td>
+                            <td>Reference Section</td>
+                        </tr>
+                         <tr>
+                            <td>FAC/2019/05</td>
+                            <td>Prof. Rakesh Singh</td>
+                            <td>09:12:45</td>
+                            <td>12:00:15</td>
+                            <td>Faculty Room</td>
+                        </tr>
+                         <tr>
+                            <td>BSC/2023/21</td>
+                            <td>Amit Kumar</td>
+                            <td>09:25:18</td>
+                            <td>11:55:30</td>
+                            <td>Library Main</td>
+                        </tr>
+                        <!-- Add more rows - scrollbar will appear if needed -->
+                         <tr>
+                            <td>BSC/2023/09</td>
+                            <td>Satyajit Dekaraja</td>
+                            <td>08:15:30</td>
+                            <td>09:45:10</td>
+                            <td>Library Main</td>
+                        </tr>
+                         <tr>
+                            <td>FAC/2021/02</td>
+                            <td>Dr. Anya Sharma</td>
+                            <td>08:30:05</td>
+                            <td>11:05:00</td>
+                            <td>Lab Entrance</td>
+                        </tr>
+                         <tr>
+                            <td>BSC/2022/15</td>
+                            <td>Priya Das</td>
+                            <td>08:40:12</td>
+                            <td>10:15:00</td>
+                            <td>Reading Hall</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="grid_item item-visitors mySlides">
+            <h1>New Arrival Book Display</h1>
+            <div id="fs_img" class="fs_img">
+                <div class="card">
+                    <img src="dashboard/images/67e3c917d1fef_1.jpg">
+                    <h3>Title</h3>
+                    <p>1</p>
+                </div>
+                <div class="card">
+                    <img src="dashboard/images/67e3c92887f64_2.jpg" alt="">
+                    <h3>Title</h3>
+                    <p>1</p>
+                </div>
+                <div class="card">
+                    <img src="dashboard/images/67e3c93aac807_3.jpg" alt="">
+                    <h3>Title</h3>
+                    <p>1</p>
+                </div>
+                <div class="card">
+                    <img src="dashboard/images/67e3c94c79696_4.jpg" alt="">
+                    <h3>Title</h3>
+                    <p>1</p>
+                </div>
+                <div class="card">
+                    <img src="dashboard/images/67e3c959d0766_5.jpg" alt="">
+                    <h3>Title</h3>
+                    <p>1</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid_item item-visitors mySlides">
+            <h1>Library New Images</h1>
+            <div id="s_img" class="s_img">
+                <img src="dashboard/images/67e19f4b4b3f5_WhatsApp Image 2025-03-22 at 13.20.11.jpeg" alt="">
+                <img src="dashboard/images/67e19f6336be6_WhatsApp Image 2025-03-22 at 13.20.14.jpeg" alt="">
+                <img src="dashboard/images/67e19f8b258f7_WhatsApp Image 2025-03-22 at 13.20.15 (1).jpeg" alt="">
+            </div>
+        </div>
+
+        <!-- Bottom Left Item -->
+        <!-- <div class="grid_item item-bottom-left"> -->
+            <!-- <h2>College Notices</h2> Use h2 if less important than h1 -->
+            <!-- <p>Upcoming seminar on AI Ethics on Friday.</p> -->
+            <!-- <p>Library hours extended during exam week.</p> -->
+            <!-- <p>New book arrivals in the fiction section.</p> -->
+            <!-- Add more content here -->
+        <!-- </div> -->
+        <div class="grid_item item-bottom-left">
+            <h1>Total: <span id="a_c5">0</span></h1>
+        </div>
+
+        <!-- Bottom Right Item -->
+        <!-- <div class="grid_item item-bottom-right"> -->
+             <!-- <h2>Quote of the Day</h2> -->
+             <!-- <p style="font-style: italic; font-size: 1.1em; margin-top: 20px;">"The only true wisdom is in knowing you know nothing."</p> -->
+             <!-- <p style="text-align: right; margin-top: 10px; font-weight: bold;">- Socrates</p> -->
+             <!-- Add other content, maybe an image? -->
+        <!-- </div> -->
+        <div class="grid_item item-bottom-right">
+            <div class="item-bottom-right_sub" hx-get="api/p_api.php?q=1" hx-trigger="load delay:3s, every 10s" hx-target="#top1" hx-swap-oob="true">
+                <img id="top1" src="icon/img_avatar.png" alt="1">
+                <div>
+                    <h3>Top One User</h3>
+                    <p id="top">Name: Firstname Lastname</p>
+                    <p id="top2">Member ID: BSC/2023/09</p>
+                    <p>2024-2025</p>
+                </div>
+            </div>
+            <div class="item-bottom-right_sub" hx-get="api/p_api.php?q=2" hx-trigger="load delay:3s" hx-target="#ptop1" hx-swap-oob="true">
+                <img id="ptop1" src="icon/img_avatar.png" alt="1">
+                <div>
+                    <h3>Awarded User</h3>
+                    <p id="ptop">Name: Firstname Lastname</p>
+                    <p id="ptop2">Member ID: BSC/2023/09</p>
+                    <p>Year: 2023-2024</p>
+                </div>
+            </div>
+            <div class="item-bottom-right_sub" hx-get="api/p_api.php?q=3" hx-trigger="load delay:3s" hx-target="#sptop1" hx-swap-oob="true">
+                <img id="sptop1" src="icon/img_avatar.png" alt="1">
+                <div>
+                    <h3>Awarded User</h3>
+                    <p id="sptop">Name: Firstname Lastname</p>
+                    <p id="sptop2">Member ID: BSC/2023/09</p>
+                    <p>Year: 2022-2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function fetchData() {
+            fetch('api/a_api.php')
+                .then(response => response.json())
+                .then(data => {
+                    const table = document.getElementById('recentlyVisitorsTable').querySelector('tbody');
+                    table.innerHTML = ''; // Clear existing rows
+                    data.data.forEach(row => {
+                        const tr = document.createElement('tr');
+                        // tr.classList.add('highlight');
+                        tr.innerHTML = `<td>${row.mem_id}</td><td style="text-transform: capitalize;">${row.fullname}</td><td class="td1">${row.Login_time}</td><td class="td1">${row.Logout_time || ' '}</td><td class="td1">${row.Location}</td>`;
+                        table.appendChild(tr);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+// Fetch data initially
+fetchData();
+// Fetch data every 5000 milliseconds (5 seconds)
+setInterval(fetchData, 2000);
+    </script>
+    <script>
+        document.addEventListener('htmx:afterOnLoad', function(evt) {
+            const response = evt.detail.xhr.responseText;
+            try {
+                const data = JSON.parse(response);
+                if (evt.detail.target.id === 'notice') {
+                    document.getElementById('notice').innerText = data.notice.trim() || 'No data found';
+                }
+                if (evt.detail.target.id === 'result_a') {
+                    document.getElementById('result_a').innerText = data.header || 'No data found';
+                }
+                if (evt.detail.target.id === 'result_b') {
+                    document.getElementById('result_b').innerText = data.header || "No data found";
+                }
+                if (evt.detail.target.id === 'a_c') {
+                    document.getElementById('a_c2').innerText = `${data.students}`;
+                    document.getElementById('a_c3').innerText = `${data.teachers}`;
+                    document.getElementById('a_c4').innerText = `${data.others}`;
+                    document.getElementById('a_c1').innerText = `${data.male}`;
+                    document.getElementById('a_c').innerText = `${data.female}`;
+                    document.getElementById('a_c5').innerText = data.visitors;
+                }
+                // if (evt.detail.target.id === 'notice') {
+                //     document.getElementById('notice').innerText = data.notice;
+                // }
+                if (evt.detail.target.id === 'top1') {
+                    document.getElementById('top').innerText = `Name: ${data.fullname}`;
+                    document.getElementById('top2').innerText = `Member ID: ${data.mem_id}`;
+                    document.getElementById('top1').src = data.member_photo || 'icon/img_avatar.png';
+                }
+                if (evt.detail.target.id === 'ptop1') {
+                    document.getElementById('ptop').innerText = `Name: ${data.fullname}`;
+                    document.getElementById('ptop2').innerText = `Member ID: ${data.mem_id}`;
+                    document.getElementById('ptop1').src = data.member_photo || 'icon/img_avatar.png';
+                }
+                if (evt.detail.target.id === 'sptop1') {
+                    document.getElementById('sptop').innerText = `Name: ${data.fullname}`;
+                    document.getElementById('sptop2').innerText = `Member ID: ${data.mem_id}`;
+                    document.getElementById('sptop1').src = data.member_photo || 'icon/img_avatar.png';
+                }
+            } catch (e) {
+                evt.detail.target.innerText = 'Error parsing response';
+            }
+        });
+    </script>
+    <script src="js/slides.js"></script>
+    <script src="js/p_slides.js"></script>
+</body>
+</html>

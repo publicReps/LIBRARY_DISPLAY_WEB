@@ -1,0 +1,262 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%; /* Ensure body takes full viewport height */
+    font-family: sans-serif; /* Sensible default font */
+    background-color: rgb(163, 163, 182); /* Background from second CSS block */
+    user-select: none; /* Prevent text selection - useful for displays */
+    overflow: hidden; /* Prevent scrollbars on the body itself */
+}
+
+/* Header Styles */
+#header {
+    width: 100%;
+    height: 150px; /* Fixed header height */
+    background-color: #d4e7eb; /* Background from second CSS block */
+    padding: 15px 20px; /* Vertical padding + Horizontal padding */
+    border-bottom: 1px solid #ccc;
+    display: grid; /* Use grid for layout */
+    grid-template-columns: auto 1fr; /* Image size auto, text takes rest */
+    align-items: center; /* Vertically center items */
+    /* gap: 20px; Space between image and text block */
+}
+#header div {
+    translate: -5%;
+}
+
+#header img {
+    /* Make image fit nicely within the header height minus padding */
+    max-height: calc(150px - 30px); /* 150px header - 15px top/bottom padding */
+    width: auto; /* Maintain aspect ratio */
+    max-width: 130px; /* Optional: Limit max width */
+    /* display: block; Remove extra space below image */
+    /* float: left; */
+}
+
+#header .header-text {
+     /* Container for text allows better control if needed */
+     /* text-align: left; */
+     text-align: center;
+}
+#header .header-text p {
+    font-weight: bold;
+}
+
+#header h1 {
+    /* font-size: 1.3em; */
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+ #header h1:first-of-type { /* Specific style for first H1 if needed */
+     color: #0056b3;
+ }
+
+#header p {
+    font-size: 0.9em;
+    font-weight: normal; /* Override potential bold from second CSS block */
+    margin-bottom: 3px;
+    color: #555;
+}
+
+/* Main Content Grid */
+.grid_container {
+    display: grid;
+    /* Define 2 columns: First fixed at 250px, second takes remaining space */
+    grid-template-columns: 250px 1fr;
+    /* Define 2 rows: Each takes an equal fraction of the available space */
+    /* grid-template-rows: 1fr 1fr; */
+    grid-template-rows: 1fr 150px;
+    /* gap: 15px; */
+    gap: 2px;
+    row-gap: 5px;
+    /* Calculate height: Full viewport height minus header height */
+    height: calc(100vh - 150px);
+    /* padding: 15px; */
+    /* Default align-items/justify-items is stretch, which is usually desired */
+}
+
+/* Grid Item Base Styles */
+.grid_item {
+    background-color: #d4e7eb; /* Default background (consistent) */
+    padding: 20px; /* Inner padding */
+    border: 1px solid #bbb; /* Slightly darker border */
+    border-radius: 5px;
+    width: 100%; /* Fill grid cell width */
+    height: 100%; /* Fill grid cell height */
+    overflow: auto; /* Add scrollbars ONLY if content exceeds the box size */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column; /* Stack content vertically */
+}
+
+.grid_item h1,
+.grid_item h2 {
+     margin-bottom: 15px; /* Space below headings */
+     font-size: 1.6em; /* Adjust heading size */
+     color: #1a237e; /* Dark blue heading color */
+     flex-shrink: 0; /* Prevent heading from shrinking */
+}
+.grid_item h2 {
+    font-size: 1.4em; /* Slightly smaller H2 */
+}
+
+.grid_item p {
+     font-size: 1em;
+     line-height: 1.4;
+     color: #333;
+}
+
+/* Specific Grid Item Styling */
+.item-attendance {
+     background-color: #e0f7fa; /* Light cyan */
+}
+
+.item-visitors {
+    background-color: #fff9c4; /* Light yellow */
+}
+.item-bottom-left {
+     background-color: #c8e6c9; /* Light green */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item-bottom-right {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    padding: 5px !important;
+    background-color: #ffcdd2; /* Light pink */
+}
+.item-bottom-right_sub {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+}
+.item-bottom-right_sub div h3 {
+    padding-top: 10px;
+    font-weight: bold;
+}
+.item-bottom-right_sub div p {
+    padding-top: 5px;
+    /* padding-bottom: 10px; */
+    font-weight: bold;
+}
+.item-bottom-right img {
+    width: 120px;
+    /* height: 100%; */
+    height: 135px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    font-size: 1em; /* Relative font size */
+    border-collapse: collapse; /* Nicer table borders */
+    margin-top: 10px;
+    flex-grow: 1; /* Allow table to grow if space allows (within flex container) */
+    overflow: hidden; /* Helps with layout consistency */
+}
+
+ /* Give table wrapper scroll if needed, not the whole grid item */
+.table-wrapper {
+     overflow-y: auto; /* Allow vertical scroll for table content */
+     flex-grow: 1; /* Take available space */
+     min-height: 0; /* Important for flex item scrolling */
+}
+
+
+table th, table td {
+    padding: 8px 10px; /* Consistent padding */
+    text-align: left;
+    border-bottom: 1px solid #eee; /* Separator lines */
+    /* vertical-align: top;  */
+    /* Align content to top */
+}
+table th {
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.05); /* Subtle header background */
+    position: sticky; /* Make table header sticky */
+    top: 0; /* Stick to the top of the scrollable container */
+    background-clip: padding-box; /* Prevent background bleed under border */
+}
+/* Zebra striping for better readability in long tables */
+ table tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+
+/* Style for the key-value attendance table */
+.item-attendance table td:first-child {
+    font-weight: bold;
+    width: 90px; /* Give keys a consistent width */
+    color: #00796b; /* Teal color for keys */
+}
+ .item-attendance table td:nth-child(2) { /* The colon */
+     width: 15px;
+     text-align: center;
+     font-weight: bold;
+     color: #aaa;
+ }
+.item-attendance table td:nth-child(3) { /* The value */
+    text-align: right;
+    font-weight: bold;
+    color: #d32f2f; /* Red color for numbers */
+    padding-right: 15px;
+}
+
+/* Style for the visitors table */
+.item-visitors table th {
+     white-space: nowrap; /* Prevent headers from wrapping */
+}
+.item-visitors table td {
+     font-size: 0.95em; /* Slightly smaller font for more data */
+}
+
+
+.fs_img{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+.fs_img .card {
+    /* width: 33.33%; */
+    /* height: 280px; */
+    height: 292.5px;
+    background-color: rgba(65, 95, 91, 0.719);
+    transition: transform 0.5s ease;
+
+}
+.card {
+    /* background-color: white; */
+    /* height: 330px; */
+    padding: 10px;
+    /* padding-bottom: 0px; */
+    border: 2px solid #ccc;
+    border-top: inherit;
+    border-bottom: inherit;
+    /* padding: 10px; */
+    /* margin: 10px; */
+    text-align: center;
+}
+.card img {
+    width: 90%;
+    /* height: 195px; */
+    height: 200px;
+}
+
+.s_img{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.s_img img {
+    width: 100%;
+    /* height: 310px; */
+    height: 312.5px;
+    /* height: 100%; */
+}
+.mySlides {display: none;}

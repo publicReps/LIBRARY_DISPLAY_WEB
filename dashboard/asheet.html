@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <link rel="stylesheet" href="css/asheet.css">
+    <script src="js/htmx.min.js"></script>
+</head>
+<body>
+    <!-- <table border="1" hx-get="apis/report.php" hx-trigger="load delay:1s, every 2s" hx-target="#a"> -->
+    <table border="1">
+        <thead>
+            <tr style="background-color: yellow;">
+                <th id="header" colspan="5"> <!-- Make this a table header that spans 5 columns -->
+                    <div style="text-align: center; margin: 0; padding: 5px; font-size: 17px;">
+                        <p style="margin: 0;">Library Annual Report, 2020-2021</p>
+                        <p style="margin: 0;">(The record time from 1/07/2023 to 30/06/2024)</p>
+                    </div>
+                </th>
+            </tr>
+            <th id="month">Month</th>
+            <th>No. of Students Users</th>
+            <th>No. of Teachers Users</th>
+            <th>Total Users</th>
+            <th>No. of working days*</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>July(2024)</td>
+                <td id="a" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).psjuly;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="b" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).ptjuly;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="c" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).july;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td><div id="d" class="edit" contenteditable="false" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).w1;this.innerHTML = `${value} <input type='hidden' value='15'>`;">0</div></td>
+            </tr>
+            <tr>
+                <td>August</td>
+                <td id="e" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).psaugust;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="f" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).ptaugust;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="g" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).august;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td><div id="h" class="edit" contenteditable="false" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).w2;this.innerHTML = `${value} <input type='hidden' value='16'>`;">0</div></td>
+            </tr>
+            <tr>
+                <td>September</td>
+                <td id="j" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).psseptember;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="i" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).ptseptember;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="k" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).september;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td><div id="l" class="edit" contenteditable="false" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).w3;this.innerHTML = `${value} <input type='hidden' value='17'>`;">0</div></td>
+            </tr>
+            <tr>
+                <td>October</td>
+                <td id="m" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).psoctober;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="n" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).ptoctober;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="o" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).october;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td><div id="p" class="edit" contenteditable="false" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).w4;this.innerHTML = `${value} <input type='hidden' value='18'>`;">0</div></td>
+            </tr>
+            <tr>
+                <td>November</td>
+                <td id="q" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).psnovember;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="s" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).ptnovember;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="u" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).november;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td><div id="v" class="edit" contenteditable="false" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).w5;this.innerHTML = `${value} <input type='hidden' value='19'>`;">0</div></td>
+            </tr>
+            <tr>
+                <td>December</td>
+                <td id="w" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).psdecember;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="x" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).ptdecember;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="y" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).december;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td><div id="z" class="edit" contenteditable="false" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).w6;this.innerHTML = `${value} <input type='hidden' value='20'>`;">0</div></td>
+            </tr>
+            <tr>
+                <td>January(2026)</td>
+                <td id="aa" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).csjanuary;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="bb" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).ctjanuary;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="cc" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).january;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td><div id="dd" class="edit" contenteditable="false" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).w7;this.innerHTML = `${value} <input type='hidden' value='21'>`;">0</div></td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td id="ee" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).csfebruary;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="ff" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).ctfebruary;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="gg" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).february;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td><div id="hh" class="edit" contenteditable="false" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).w8;this.innerHTML = `${value} <input type='hidden' value='22'>`;">0</div></td>
+            </tr>
+            <tr>
+                <td>March</td>
+                <td id="jj" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).csmarch;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="ii" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).ctmarch;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="kk" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).march;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td><div id="ll" class="edit" contenteditable="false" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).w9;this.innerHTML = `${value} <input type='hidden' value='23'>`;">0</div></td>
+            </tr>
+            <tr>
+                <td>April</td>
+                <td id="mm" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).csapril;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="nn" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).ctapril;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="oo" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).april;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td><div id="pp" class="edit" contenteditable="false" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).w10;this.innerHTML = `${value} <input type='hidden' value='24'>`;">0</div></td>
+            </tr>
+            <tr>
+                <td>May</td>
+                <td id="qq" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).csmay;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="ss" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).ctmay;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="tt" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).may;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td><div id="uu" class="edit" contenteditable="false" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).w11;this.innerHTML = `${value} <input type='hidden' value='25'>`;">0</div></td>
+            </tr>
+            <tr>
+                <td>June</td>
+                <td id="vv" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).csjune;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="ww" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).ctjune;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td id="xa" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).june;this.innerHTML = `${value} <input type='hidden' value='${value}'>`;">0</td>
+                <td><div id="yy" class="edit" contenteditable="false" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: const value = JSON.parse(event.detail.xhr.responseText).w12;this.innerHTML = `${value} <input type='hidden' value='26'>`;">0</div></td>
+            </tr>
+            <tr>
+                <td>Total =</td>
+                <td id="st" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: this.innerText = JSON.parse(event.detail.xhr.responseText).stotal;">0</td>
+                <td id="tet" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: this.innerText = JSON.parse(event.detail.xhr.responseText).ttotal;">0</td>
+                <td id="tusers" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: this.innerText = JSON.parse(event.detail.xhr.responseText).total;">0</td>
+                <td id="tw" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: this.innerText = JSON.parse(event.detail.xhr.responseText).wdays;">0</td>
+            </tr>
+            <tr>
+                <td>Average/day =</td>
+                <td id="saverage" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: this.innerText = JSON.parse(event.detail.xhr.responseText).saverage;">0</td>
+                <td id="taverage" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: this.innerText = JSON.parse(event.detail.xhr.responseText).taverage;">0</td>
+                <td id="average" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: this.innerText = JSON.parse(event.detail.xhr.responseText).average;">0</td>
+            </tr>
+            <tr>
+                <td>Total Students =</td>
+                <td></td>
+                <td></td>
+                <td id="students" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: this.innerText = JSON.parse(event.detail.xhr.responseText).students;">0</td>
+            </tr>
+            <tr>
+                <td>Total Teachers =</td>
+                <td></td>
+                <td></td>
+                <td id="teachers" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: this.innerText = JSON.parse(event.detail.xhr.responseText).teachers;">0</td>
+            </tr>
+            <tr>
+                <td>Total users =</td>
+                <td></td>
+                <td></td>
+                <td id="mtotal" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: this.innerText = JSON.parse(event.detail.xhr.responseText).mtotal;">0</td>
+            </tr>
+            <tr>
+                <td>Percentage/day =</td>
+                <td></td>
+                <td></td>
+                <td id="percentage" hx-get="apis/report.php" hx-trigger="load" hx-target="this" hx-on="htmx:afterSwap: this.innerText = JSON.parse(event.detail.xhr.responseText).percentage;">0</td>
+            </tr>
+        </tbody>
+    </table>
+    <nav class="navbar" style="float: right;">
+        <ul style="margin: 0;">
+            <li><a id="btn" href="dashboard.html" class="tab-button">Home</a></li>
+        </ul>
+    </nav>
+    <script src="js/asheet.js"></script>
+    <script>
+        window.addEventListener('beforeprint', function() {
+            document.getElementById('month').style.width = '120px';
+            document.getElementById('btn').style.display = 'none';
+        });
+
+        window.addEventListener('afterprint', function() {
+            document.getElementById('month').style.width = 'auto';
+            document.getElementById('btn').style.display = 'block';});
+    </script>
+</body>
+</html>

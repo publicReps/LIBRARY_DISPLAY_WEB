@@ -1,0 +1,162 @@
+        /* Basic styling for the navbar */
+        .navbar {
+            background-color: #333;
+            /* padding: 10px; */
+            height: 40px;
+            display: flex;
+            justify-content: space-between; /* Space out left and right sections */
+            align-items: center;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex: 1;
+        }
+
+        /* .navbar ul li {
+            margin-right: 20px;
+        } */
+
+        .navbar .left-side li {
+            margin-right: 20px;
+        }
+        .navbar .right-side li {
+            margin-left: 5px;
+        }
+
+        .tab-button {
+            /* width: 45px; */
+            /* height: 45px; */
+            color: white;
+            background: none;
+            border: 2px solid white;
+            text-decoration: none;
+            /* border-color: white; */
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .homebtn {
+            background-color: #007bff;
+            background-image: url(../icon/house-solid.svg);
+            background-repeat: no-repeat;
+            background-size: 25px 25px;
+            background-position-x: center;
+            background-position-y: center;
+        }
+
+        .tab-button:hover {
+            background-color: #444;
+        }
+
+        /* Flexbox layout for left side buttons */
+        .navbar .left-side {
+            justify-content: left;
+        }
+
+        /* Flexbox layout for right side buttons */
+        .navbar .right-side {
+            justify-content: right;
+            margin-left: 20px;
+        }
+
+        .editable {
+            border: 1px solid #ccc;
+            color: white;
+            /* padding: 10px; */
+            width: 300px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+            box-sizing: border-box;
+            margin-right: 10px;
+            padding: 0;
+            border-radius: 5px;
+            /* text */
+            /* display: inline-block; */
+            overflow-x: auto;
+            white-space: nowrap;
+            /* cursor: text; */
+            outline: none;
+            /* height: 25px; */
+            font-size: 17px;
+            /* vertical-align: middle; */
+            /* line-height: 30px; */
+            
+        }
+        .editable::-webkit-scrollbar {
+            display: none;
+        }
+        .editable:focus {
+        cursor: text;
+        border-color: red;
+        user-select: none;
+        }
+
+        .editable:empty:before {
+            content: "Click to edit...";
+            color: #999;
+        }
+        body {
+            background-color: #c578c7;
+            box-sizing: border-box;
+        }
+        .navbar {width: fit-content;}
+        table{
+            margin: auto;
+            /* width: 650px; */
+            background-color: white;
+            border-collapse: collapse;
+        }
+        table, th, td{
+            border: 1px solid black;
+        }
+        table thead th{
+            font-size: 19px;
+            padding: 8px;
+            /* width: 20%; */
+            background-color: #c6d9f1;
+        }
+        table #header{
+            background-color: #fde9d9;
+        }
+        table td{
+            font-size: 18px;
+            text-align: end;
+        }
+        thead th{
+            background-color: #c6d9f1;
+            border-bottom-style: none;
+            border-left-style: solid;
+            border-left-color: #000000;
+            border-left-width: 0.0621cm;
+            border-right-style: solid;
+            border-right-color: #000000;
+            border-right-width: 0.0621cm;
+            border-top-style: solid;
+            border-top-color: #000000;
+            border-top-width: 0.0621cm;
+        }
+        tr td:first-child, #average, #percentage{
+            background-color: #fde9d9;
+        }
+        tr:nth-child(-n+13) td:nth-child(3), tr:nth-child(-n+13) td:nth-child(4), #students, #teachers {
+            background-color: #daeef3;
+        }
+        tr:nth-child(13){
+            background-color: #daeef3;
+        }
+        /* tr:nth-child(-n4) {
+            background-color: aqua;
+        } */
+        table td:first-child{
+            text-align: start;
+        }

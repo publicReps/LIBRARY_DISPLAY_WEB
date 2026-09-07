@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/htmx.min.js"></script>
+    <style>
+    .floating-div {
+      width: 400px;
+      max-width: 90%;
+      padding: 20px;
+      background: white;
+      /* box-shadow: 0 5px 15px rgba(0,0,0,0.3); */
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      transition: top 0.8s, transform 0.8s;
+      top: 0;
+      text-align: center;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
+    .floating-div.center {
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .floating-div h5 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .floating-div textarea {
+      width: 100%;
+      height: 120px;
+      padding: 10px;
+      font-size: 14px;
+      resize: none;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      margin-bottom: 15px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .submit-btn, .close-btn {
+      flex: 1;
+      padding: 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .close-btn {
+      background-color: crimson;
+      color: white;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+
+    .close-btn:hover {
+      background-color: #c82333;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="left-side">
+            <li><a href="dashboard.html" class="tab-button">Home</a></li>
+            <!-- <li><a href="notify.html" class="tab-button">Notify</a></li> -->
+            <li><a href="photo.html" class="tab-button">Photo</a></li>
+            <li><a href="asheet.html" class="tab-button">Attendance</a></li>
+            <li><a id="notice-btn" onclick="toggleFloatDiv('notice')" class="tab-button">Notice</a></li>
+            <li><a onclick="toggleFloatDiv('email'); document.getElementById('subj').focus();" class="tab-button">Email</a></li>
+        </ul>
+        <ul class="right-side" style="display: flex;">
+            <!-- <li><div><p>Successfully</p></div></li> -->
+            <li><div style="width: 150px !important;text-align: center;background-color: green;" class="editable"><p id="response" style="margin: 0;padding: 0;">Status</p></div></li>
+            <li><div><div id="editableField_1" style="width: 150px !important;" class="editable edit" contenteditable="false" hx-get="apis/d.php?q=1" hx-trigger="load delay:1s" hx-target="this"></div></div></li>
+            <li><div><div id="editableField_2" style="width: 150px !important;" class="editable edit" contenteditable="false" hx-get="apis/d.php?q=2" hx-trigger="load delay:1s" hx-target="this"></div></div></li>
+        </ul>
+    </nav>
+    <h2 id="header">Report Section</h2>
+    <div class="a">
+        <div class="b">
+            <div class="c" hx-get="../api/p_api.php?q=1" hx-trigger="load delay:2s, every 10s" hx-target="#top1">
+                <!-- hx-output="this.innerHTML = responseText" -->
+                <img id="top1" src="../icon/img_avatar.png">
+                <div>
+                    <h3>Top One User</h3>
+                    <!-- <p>Name: Firstname Lastname</p> -->
+                    <p>Name: <span id="top">Firstname Lastname</span></p>
+                    <p>Member ID: <span id="top2">BSC/2023/09</span></p>
+                </div>
+            </div>
+            <div style="background-color: #285258; height: 300px; padding: 30px;">
+                <h1>Info:</h1>
+                <ul>
+                    <li>First information</li>
+                    <li>Second information</li>
+                    <li>Third information</li>
+                </ul>
+                <div style="text-align: right;">
+                    <p id="date"></p>
+                    <p id="festival-name" style="font-weight: bolder; font-family: sans-serif;"></p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="column left-column">
+                <div class="box">
+                    <h1>Circulation</h1>
+                    <div class="member">
+                        <div style="height: 90px;">
+                            <p>Current Issued:</p>
+                            <p hx-get="apis/c_b_a.php?param=1&sub_param=1" hx-trigger="load delay:1s, every 10s">100</p>
+                        </div>
+                        <div>
+                            <p>Received:</p>
+                            <p hx-get="apis/c_b_a.php?param=1&sub_param=2" hx-trigger="load delay:1s, every 10s">100</p>
+                        </div>
+                        <div>
+                            <p>Reissued:</p>
+                            <p hx-get="apis/c_b_a.php?param=1&sub_param=3" hx-trigger="load delay:1s, every 10s">100</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <h1>Books</h1>
+                    <div class="member" style="grid-template-columns: repeat(2, 1fr) !important;">
+                        <div>
+                            <p>Unique Copies:</p>
+                            <p hx-get="apis/c_b_a.php?param=2&sub_param=1" hx-trigger="load delay:1s, every 10s">100</p>
+                        </div>
+                        <div>
+                            <p>Multi Copies:</p>
+                            <p hx-get="apis/c_b_a.php?param=2&sub_param=2" hx-trigger="load delay:1s, every 10s">100</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <h1>Attendance</h1>
+                    <div class="member" style="grid-template-columns: repeat(4, 1fr) !important;">
+                        <div>
+                            <p>Studs:</p>
+                            <p hx-get="apis/c_b_a.php?param=3&sub_param=1" hx-trigger="load delay:1s, every 10s">100</p>
+                        </div>
+                        <div>
+                            <p>Staff:</p>
+                            <p hx-get="apis/c_b_a.php?param=3&sub_param=2" hx-trigger="load delay:1s, every 10s">100</p>
+                        </div>
+                        <div>
+                            <p>Female:</p>
+                            <p hx-get="apis/c_b_a.php?param=3&sub_param=3" hx-trigger="load delay:1s, every 10s">100</p>
+                        </div>
+                        <div>
+                            <p>Male:</p>
+                            <p hx-get="apis/c_b_a.php?param=3&sub_param=4" hx-trigger="load delay:1s, every 10s">100</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="box">
+                    <h1>Collections</h1>
+                    <div class="data-grid">
+                        <div>TEXTBOOKS</div>
+                        <div>:</div>
+                        <div id="id_a" class="edit" contenteditable="false" hx-get="apis/d.php?q=6"
+                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div>JOURNAL & MAGAZINE</div>
+                        <div>:</div>
+                        <div id="id_b" class="edit" contenteditable="false" hx-get="apis/d.php?q=7"
+                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div>BOUND VOLUMES</div>
+                        <div>:</div>
+                        <div id="id_c" class="edit" contenteditable="false" hx-get="apis/d.php?q=8"
+                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div>E-JOURNALS</div>
+                        <div>:</div>
+                        <div id="id_d" class="edit" contenteditable="false" hx-get="apis/d.php?q=9"
+                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div>SUBSCRIBED DATABASES</div>
+                        <div>:</div>
+                        <div id="id_e" class="edit" contenteditable="false" hx-get="apis/d.php?q=10"
+                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div>BRAILLE</div>
+                        <div>:</div>
+                        <div id="id_f" class="edit" contenteditable="false" hx-get="apis/d.php?q=11"
+                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div>THESIS</div>
+                        <div>:</div>
+                        <div id="id_g" class="edit" contenteditable="false" hx-get="apis/d.php?q=12"
+                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div>DISSERTATIONS</div>
+                        <div>:</div>
+                        <div id="id_h" class="edit" contenteditable="false" hx-get="apis/d.php?q=13"
+                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div>NEWSPAPER</div>
+                        <div>:</div>
+                        <div id="id_i" class="edit" contenteditable="false" hx-get="apis/d.php?q=14"
+                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- floating section -->
+    <div id="floatDiv" class="floating-div">
+        <h5>Notification</h5>
+        <textarea name="notice" id="notice" hx-get="apis/d.php?q=5" hx-trigger="load delay:2s" hx-target="this" placeholder="Input Library or College Notice..."></textarea>
+        <div class="button-group">
+          <button hx-post="apis/d_u.php" hx-include="#notice" hx-target="#response" hx-on="htmx:afterRequest: setTimeout(() => document.getElementById('response').innerHTML = 'Status', 2000)" class="submit-btn">Submit</button>
+          <button class="close-btn" onclick="toggleFloatDiv('notice')">Close</button>
+          <button class="close-btn" onclick="document.getElementById('notice').value = '';">Reset</button>
+        </div>
+    </div>
+    <!-- floating section for email -->
+    <div id="floatDiv1" class="floating-div">
+        <h5 id="test">Email</h5>
+        <input style="height: 20px; outline: none; border: 1px solid black;margin-bottom: 3px;" type="text" name="subj" id="subj" placeholder="Subject..."/>
+        <textarea name="email" id="email" placeholder="Email..."></textarea>
+        <div class="button-group">
+          <button hx-post="apis/email.php" hx-include="#subj, #email" hx-target="#response" hx-on="htmx:beforeRequest: document.getElementById('response').innerHTML = 'Processing...'" class="submit-btn">Submit</button>
+          <button class="close-btn" onclick="toggleFloatDiv('email')">Close</button>
+        </div>
+    </div>
+    <script src="js/dashboard.js"></script>
+    <script>
+        // const floatDiv = document.getElementById('floatDiv');
+
+        // // Animate to center after page load
+        // window.onload = function() {
+        //     setTimeout(() => {
+        //         floatDiv.classList.add('center');
+        //     }, 100); // slight delay for smooth start
+        // };
+
+        // // On close button click
+        // function closeDiv() {
+        //     floatDiv.classList.remove('center');
+        //     setTimeout(() => {
+        //         floatDiv.style.display = 'none';
+        //     }, 800); // match the transition time
+        // }
+
+        // Toggle function
+        function toggleFloatDiv(param) {
+            let floatDiv;
+            if (param === 'notice') {
+                floatDiv = document.getElementById('floatDiv');
+            } else if (param === 'email') {
+                floatDiv = document.getElementById('floatDiv1');
+            }
+            if (floatDiv.style.display === 'none' || !floatDiv.style.display) {
+            // Open div (move to center)
+            floatDiv.style.display = 'block'; // show div
+            setTimeout(() => {
+                floatDiv.classList.add('center'); // move to center
+            }, 100); // slight delay for smooth start
+            } else {
+            // Close div (move back to top)
+            floatDiv.classList.remove('center'); // move back up
+            setTimeout(() => {
+                floatDiv.style.display = 'none'; // hide after animation
+            }, 800); // match the transition time
+            }
+        }
+
+        // document.getElementById('date').innerHTML = new Date().toLocaleDateString('en-US', {
+        //     weekday: 'long',
+        //     year: 'numeric',
+        //     month: 'long',
+        //     day: 'numeric'
+        // });
+    </script>
+</body>
+</html>
