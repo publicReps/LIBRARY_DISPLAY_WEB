@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Dashboard - Real-time</title>
     <link rel="stylesheet" href="css/dashboard.css">
-    <script src="js/htmx.min.js"></script>
     <style>
     .floating-div {
       width: 400px;
@@ -94,15 +93,15 @@
         <ul class="right-side" style="display: flex;">
             <!-- <li><div><p>Successfully</p></div></li> -->
             <li><div style="width: 150px !important;text-align: center;background-color: green;" class="editable"><p id="response" style="margin: 0;padding: 0;">Status</p></div></li>
-            <li><div><div id="editableField_1" style="width: 150px !important;" class="editable edit" contenteditable="false" hx-get="apis/d.php?q=1" hx-trigger="load delay:1s" hx-target="this"></div></div></li>
-            <li><div><div id="editableField_2" style="width: 150px !important;" class="editable edit" contenteditable="false" hx-get="apis/d.php?q=2" hx-trigger="load delay:1s" hx-target="this"></div></div></li>
+            <li><div><div id="editableField_1" style="width: 150px !important;" class="editable edit" contenteditable="false"></div></div></li>
+            <li><div><div id="editableField_2" style="width: 150px !important;" class="editable edit" contenteditable="false"></div></div></li>
         </ul>
     </nav>
     <h2 id="header">Report Section</h2>
     <div class="a">
         <div class="b">
-            <div class="c" hx-get="../api/p_api.php?q=1" hx-trigger="load delay:2s, every 10s" hx-target="#top1">
-                <!-- hx-output="this.innerHTML = responseText" -->
+            <div class="c">
+                <!--    -->
                 <img id="top1" src="../icon/img_avatar.png">
                 <div>
                     <h3>Top One User</h3>
@@ -131,15 +130,15 @@
                     <div class="member">
                         <div style="height: 90px;">
                             <p>Current Issued:</p>
-                            <p hx-get="apis/c_b_a.php?param=1&sub_param=1" hx-trigger="load delay:1s, every 10s">100</p>
+                            <p >100</p>
                         </div>
                         <div>
                             <p>Received:</p>
-                            <p hx-get="apis/c_b_a.php?param=1&sub_param=2" hx-trigger="load delay:1s, every 10s">100</p>
+                            <p >100</p>
                         </div>
                         <div>
                             <p>Reissued:</p>
-                            <p hx-get="apis/c_b_a.php?param=1&sub_param=3" hx-trigger="load delay:1s, every 10s">100</p>
+                            <p >100</p>
                         </div>
                     </div>
                 </div>
@@ -148,11 +147,11 @@
                     <div class="member" style="grid-template-columns: repeat(2, 1fr) !important;">
                         <div>
                             <p>Unique Copies:</p>
-                            <p hx-get="apis/c_b_a.php?param=2&sub_param=1" hx-trigger="load delay:1s, every 10s">100</p>
+                            <p >100</p>
                         </div>
                         <div>
                             <p>Multi Copies:</p>
-                            <p hx-get="apis/c_b_a.php?param=2&sub_param=2" hx-trigger="load delay:1s, every 10s">100</p>
+                            <p >100</p>
                         </div>
                     </div>
                 </div>
@@ -161,19 +160,19 @@
                     <div class="member" style="grid-template-columns: repeat(4, 1fr) !important;">
                         <div>
                             <p>Studs:</p>
-                            <p hx-get="apis/c_b_a.php?param=3&sub_param=1" hx-trigger="load delay:1s, every 10s">100</p>
+                            <p >100</p>
                         </div>
                         <div>
                             <p>Staff:</p>
-                            <p hx-get="apis/c_b_a.php?param=3&sub_param=2" hx-trigger="load delay:1s, every 10s">100</p>
+                            <p >100</p>
                         </div>
                         <div>
                             <p>Female:</p>
-                            <p hx-get="apis/c_b_a.php?param=3&sub_param=3" hx-trigger="load delay:1s, every 10s">100</p>
+                            <p >100</p>
                         </div>
                         <div>
                             <p>Male:</p>
-                            <p hx-get="apis/c_b_a.php?param=3&sub_param=4" hx-trigger="load delay:1s, every 10s">100</p>
+                            <p >100</p>
                         </div>
                     </div>
                 </div>
@@ -184,40 +183,31 @@
                     <div class="data-grid">
                         <div>TEXTBOOKS</div>
                         <div>:</div>
-                        <div id="id_a" class="edit" contenteditable="false" hx-get="apis/d.php?q=6"
-                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div id="id_a" class="edit" contenteditable="false">0</div>
                         <div>JOURNAL & MAGAZINE</div>
                         <div>:</div>
-                        <div id="id_b" class="edit" contenteditable="false" hx-get="apis/d.php?q=7"
-                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div id="id_b" class="edit" contenteditable="false">0</div>
                         <div>BOUND VOLUMES</div>
                         <div>:</div>
-                        <div id="id_c" class="edit" contenteditable="false" hx-get="apis/d.php?q=8"
-                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div id="id_c" class="edit" contenteditable="false">0</div>
                         <div>E-JOURNALS</div>
                         <div>:</div>
-                        <div id="id_d" class="edit" contenteditable="false" hx-get="apis/d.php?q=9"
-                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div id="id_d" class="edit" contenteditable="false">0</div>
                         <div>SUBSCRIBED DATABASES</div>
                         <div>:</div>
-                        <div id="id_e" class="edit" contenteditable="false" hx-get="apis/d.php?q=10"
-                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div id="id_e" class="edit" contenteditable="false">0</div>
                         <div>BRAILLE</div>
                         <div>:</div>
-                        <div id="id_f" class="edit" contenteditable="false" hx-get="apis/d.php?q=11"
-                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div id="id_f" class="edit" contenteditable="false">0</div>
                         <div>THESIS</div>
                         <div>:</div>
-                        <div id="id_g" class="edit" contenteditable="false" hx-get="apis/d.php?q=12"
-                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div id="id_g" class="edit" contenteditable="false">0</div>
                         <div>DISSERTATIONS</div>
                         <div>:</div>
-                        <div id="id_h" class="edit" contenteditable="false" hx-get="apis/d.php?q=13"
-                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div id="id_h" class="edit" contenteditable="false">0</div>
                         <div>NEWSPAPER</div>
                         <div>:</div>
-                        <div id="id_i" class="edit" contenteditable="false" hx-get="apis/d.php?q=14"
-                            hx-trigger="load delay:1s" hx-target="this">0</div>
+                        <div id="id_i" class="edit" contenteditable="false">0</div>
                     </div>
                 </div>
             </div>
@@ -226,9 +216,9 @@
     <!-- floating section -->
     <div id="floatDiv" class="floating-div">
         <h5>Notification</h5>
-        <textarea name="notice" id="notice" hx-get="apis/d.php?q=5" hx-trigger="load delay:2s" hx-target="this" placeholder="Input Library or College Notice..."></textarea>
+        <textarea name="notice" id="notice" placeholder="Input Library or College Notice..."></textarea>
         <div class="button-group">
-          <button hx-post="apis/d_u.php" hx-include="#notice" hx-target="#response" hx-on="htmx:afterRequest: setTimeout(() => document.getElementById('response').innerHTML = 'Status', 2000)" class="submit-btn">Submit</button>
+          <button onclick="submitNotice()" class="submit-btn">Submit</button>
           <button class="close-btn" onclick="toggleFloatDiv('notice')">Close</button>
           <button class="close-btn" onclick="document.getElementById('notice').value = '';">Reset</button>
         </div>
@@ -239,29 +229,12 @@
         <input style="height: 20px; outline: none; border: 1px solid black;margin-bottom: 3px;" type="text" name="subj" id="subj" placeholder="Subject..."/>
         <textarea name="email" id="email" placeholder="Email..."></textarea>
         <div class="button-group">
-          <button hx-post="apis/email.php" hx-include="#subj, #email" hx-target="#response" hx-on="htmx:beforeRequest: document.getElementById('response').innerHTML = 'Processing...'" class="submit-btn">Submit</button>
+          <button onclick="submitEmail()" class="submit-btn">Submit</button>
           <button class="close-btn" onclick="toggleFloatDiv('email')">Close</button>
         </div>
     </div>
     <script src="js/dashboard.js"></script>
     <script>
-        // const floatDiv = document.getElementById('floatDiv');
-
-        // // Animate to center after page load
-        // window.onload = function() {
-        //     setTimeout(() => {
-        //         floatDiv.classList.add('center');
-        //     }, 100); // slight delay for smooth start
-        // };
-
-        // // On close button click
-        // function closeDiv() {
-        //     floatDiv.classList.remove('center');
-        //     setTimeout(() => {
-        //         floatDiv.style.display = 'none';
-        //     }, 800); // match the transition time
-        // }
-
         // Toggle function
         function toggleFloatDiv(param) {
             let floatDiv;
@@ -285,12 +258,18 @@
             }
         }
 
-        // document.getElementById('date').innerHTML = new Date().toLocaleDateString('en-US', {
-        //     weekday: 'long',
-        //     year: 'numeric',
-        //     month: 'long',
-        //     day: 'numeric'
-        // });
+        // Submit notice via WebSocket
+        function submitNotice() {
+            const noticeValue = document.getElementById('notice').value;
+            updateNotice(noticeValue);
+        }
+
+        // Submit email via WebSocket
+        function submitEmail() {
+            const subject = document.getElementById('subj').value;
+            const email = document.getElementById('email').value;
+            sendEmail(subject, email);
+        }
     </script>
 </body>
 </html>
