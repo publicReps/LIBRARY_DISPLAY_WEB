@@ -1,15 +1,22 @@
 {
-  "name": "realtime-dashboard",
+  "name": "@publicreps/realtime-dashboard",
   "version": "1.0.0",
   "description": "Real-time dashboard with WebSocket support",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No tests configured\""
   },
-  "keywords": ["dashboard", "websocket", "realtime"],
+  "keywords": [
+    "dashboard",
+    "websocket",
+    "realtime"
+  ],
   "author": "",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "dependencies": {
     "express": "^4.18.2",
     "mysql2": "^3.6.0",
